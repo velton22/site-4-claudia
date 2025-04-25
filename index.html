@@ -1,0 +1,2566 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Dra. Andressa Sone | Especialista em Resina Composta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* Reset e estilos base */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html, body {
+overflow-x: hidden;
+width: 100%;
+position: relative;
+}
+
+@font-face {
+font-family: 'Nimbus Roman D OT Bold Italic';
+src: url('NimbusRomanDOTBoldItalic.woff2') format('woff2'),
+     url('NimbusRomanDOTBoldItalic.woff') format('woff');
+font-weight: bold;
+font-style: italic;
+}
+
+:root {
+--dark: #0c0c13;
+--darker: #0a0b10;
+--card-bg: #1f1f24;
+--faq-bg: #5f1114; /* Cor atualizada para o fundo do FAQ */
+--method-bg: #5f1114; /* Cor atualizada para o fundo do Método */
+--menu-bg: #121318;
+--white: #ffffff;
+--gray-400: #9ca3af;
+--gray-600: #4b5563;
+--gold-1: #a99161;
+--gold-2: #d7c189;
+--gold-3: #f2dc96;
+--gold-4: #d7c189;
+--gold-5: #a99161;
+--features-bg: #131419;
+--feature-card-bg: #882d2f; /* Cor atualizada para os cards */
+--faq-item-bg: #882d2f; /* Cor atualizada para as caixas FAQ */
+--section-title: #5f1114; /* Nova cor para títulos de seção */
+--subtitle-color: #97564e; /* Nova cor para subtítulos */
+}
+
+body {
+font-family: 'Inter', sans-serif;
+color: var(--white);
+background-color: var(--dark);
+line-height: 1.5;
+width: 100%;
+overflow-x: hidden;
+}
+
+.container {
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 1rem;
+}
+
+a {
+text-decoration: none;
+color: inherit;
+}
+
+ul {
+list-style: none;
+}
+
+img {
+max-width: 100%;
+height: auto;
+}
+
+.sr-only {
+position: absolute;
+width: 1px;
+height: 1px;
+padding: 0;
+margin: -1px;
+overflow: hidden;
+clip: rect(0, 0, 0, 0);
+white-space: nowrap;
+border-width: 0;
+}
+
+/* Animação de surgimento */
+.fade-in-item {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-item.is-visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* Atraso para animação sequencial */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+
+/* Gradiente de dourado */
+.gold-gradient {
+font-family: 'Nimbus Roman D OT Bold Italic', serif;
+font-style: italic;
+background: linear-gradient(90deg, 
+  var(--gold-1), 
+  var(--gold-2), 
+  var(--gold-3), 
+  var(--gold-4), 
+  var(--gold-5));
+background-size: 200% auto;
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+animation: gradient 5s linear infinite; /* Aumentada a velocidade da animação */
+}
+
+.gold-bg {
+background: linear-gradient(90deg, 
+  var(--gold-1), 
+  var(--gold-2), 
+  var(--gold-3), 
+  var(--gold-4), 
+  var(--gold-5));
+background-size: 200% auto;
+animation: gradient 5s linear infinite; /* Aumentada a velocidade da animação */
+}
+
+@keyframes gradient {
+0% {
+  background-position: 0% 50%;
+}
+50% {
+  background-position: 100% 50%;
+}
+100% {
+  background-position: 0% 50%;
+}
+}
+
+/* Menu âncora */
+.anchor-menu-section {
+background-color: var(--menu-bg);
+border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+width: 100%;
+z-index: 1000;
+position: relative; /* Garante que o menu não fique preso */
+}
+
+.anchor-menu {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0.75rem 0;
+}
+
+.logo {
+display: flex;
+align-items: center;
+}
+
+.logo img {
+height: 40px;
+width: auto;
+}
+
+.menu-toggle {
+background: none;
+border: none;
+color: var(--white);
+cursor: pointer;
+padding: 0.5rem;
+display: flex;
+flex-direction: column;
+gap: 5px;
+position: relative;
+z-index: 1001;
+}
+
+.menu-toggle span {
+display: block;
+width: 24px;
+height: 2px;
+background-color: var(--white);
+transition: all 0.3s ease;
+}
+
+.menu-dropdown {
+position: absolute;
+top: 100%;
+right: 1rem;
+background-color: rgba(12, 12, 19, 0.95);
+width: 250px;
+border-radius: 0.5rem;
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+padding: 1rem;
+transform: translateY(-10px);
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s ease;
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+z-index: 1000;
+}
+
+.menu-dropdown.active {
+transform: translateY(0);
+opacity: 1;
+visibility: visible;
+}
+
+.menu-dropdown ul {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+}
+
+.menu-dropdown a {
+display: block;
+padding: 0.5rem;
+color: var(--gray-400);
+transition: all 0.3s ease;
+border-radius: 0.25rem;
+}
+
+.menu-dropdown a:hover {
+background-color: rgba(196, 173, 116, 0.1);
+color: var(--white);
+}
+
+.menu-dropdown a.active {
+color: var(--gold-3);
+}
+
+/* Hero section - Estilos base para mobile */
+.hero {
+position: relative;
+height: auto;
+display: block;
+overflow: hidden;
+background-color: var(--dark);
+width: 100%;
+}
+
+.hero-bg {
+width: 100%;
+height: auto;
+display: block;
+}
+
+.hero-content {
+position: absolute;
+z-index: 2;
+text-align: center;
+padding: 0 1rem;
+bottom: 2%; /* Ajustado para ficar mais abaixo (3% a menos) */
+width: 100%;
+left: 0;
+right: 0;
+margin: 0 auto;
+}
+
+.hero-title {
+font-size: 2.5rem;
+font-weight: 700;
+margin-bottom: 1.5rem;
+line-height: 1.2;
+text-align: center;
+}
+
+.hero-description {
+color: var(--gray-400);
+margin-bottom: 2rem;
+max-width: 28rem;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+}
+
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;
+padding: 0.75rem 1.5rem;
+border-radius: 9999px;
+font-weight: 500;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+
+.btn-white {
+background-color: var(--white);
+color: var(--dark);
+}
+
+.btn-white:hover {
+background-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-gold {
+background: linear-gradient(90deg, 
+  var(--gold-1), 
+  var(--gold-2), 
+  var(--gold-3), 
+  var(--gold-4), 
+  var(--gold-5));
+color: var(--dark);
+}
+
+.btn-gold:hover {
+opacity: 0.9;
+}
+
+.btn-outline {
+border: 1px solid var(--gold-3);
+color: var(--gold-3);
+}
+
+.btn-outline:hover {
+background-color: var(--gold-3);
+color: var(--dark);
+}
+
+.btn-sm {
+padding: 0.25rem 1rem;
+font-size: 0.875rem;
+}
+
+/* Botão com círculo e seta */
+.btn-action {
+display: inline-flex;
+align-items: center;
+position: relative;
+white-space: nowrap;
+}
+
+.btn-action-text {
+background: linear-gradient(90deg, 
+  var(--gold-1), 
+  var(--gold-2), 
+  var(--gold-3), 
+  var(--gold-4), 
+  var(--gold-5));
+color: #000;
+font-weight: 900;
+padding: 1rem 1.5rem;
+border-radius: 9999px;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+font-size: 0.9rem;
+}
+
+.btn-action-circle {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 3rem;
+height: 3rem;
+border-radius: 50%;
+background: linear-gradient(90deg, 
+  var(--gold-1), 
+  var(--gold-2), 
+  var(--gold-3), 
+  var(--gold-4), 
+  var(--gold-5));
+margin-left: 0.75rem;
+transition: transform 0.3s ease;
+}
+
+.btn-action:hover .btn-action-circle {
+transform: translateX(5px);
+}
+
+.btn-action-circle svg {
+width: 1.25rem;
+height: 1.25rem;
+stroke: #000;
+stroke-width: 2.5;
+}
+
+/* Features section */
+.features {
+padding: 4rem 0;
+background-color: #5f1114; /* Alterado para #5f1114 */
+background-image: url('https://i.imgur.com/on5xaXa.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+overflow: hidden;
+}
+
+.section-title {
+font-size: 2rem;
+font-weight: 700;
+text-align: center;
+margin-bottom: 4rem;
+color: var(--white); /* Restaurado para branco */
+}
+
+.pequenos-detalhes {
+color: #5f1114; /* Cor alterada para #5f1114 */
+}
+
+.grande-diferenca {
+font-family: 'Nimbus Roman D OT Bold Italic', serif;
+font-style: italic;
+background: linear-gradient(90deg, 
+  var(--gold-1), 
+  var(--gold-2), 
+  var(--gold-3), 
+  var(--gold-4), 
+  var(--gold-5));
+background-size: 200% auto;
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+animation: gradient 5s linear infinite;
+}
+
+/* Carrossel de features - AJUSTADO PARA MOBILE */
+.features-carousel-container {
+position: relative;
+width: 100%;
+margin: 0 auto;
+border-radius: 0.5rem;
+max-width: 100%;
+overflow: hidden;
+}
+
+.features-carousel {
+display: flex;
+transition: transform 0.5s ease;
+width: 100%;
+}
+
+.feature-slide {
+min-width: 100%;
+flex: 0 0 100%;
+padding: 0;
+background-color: var(--feature-card-bg);
+border-radius: 0.5rem;
+box-sizing: border-box;
+border: 1px solid rgba(255, 255, 255, 0.1);
+overflow: hidden;
+}
+
+.feature-slide img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+border: 1px solid #5f1114; /* Borda fina apenas nas fotos */
+}
+
+/* Method section */
+.method {
+padding: 5rem 0;
+background-color: var(--method-bg); /* Cor atualizada para o fundo do Método */
+width: 100%;
+overflow: hidden;
+}
+
+.section-intro {
+text-align: center;
+margin-bottom: 3rem;
+}
+
+.section-description {
+color: var(--gray-400);
+max-width: 36rem;
+margin: 0 auto;
+}
+
+.method-steps {
+display: flex;
+flex-direction: column;
+justify-content: center;
+max-width: 800px;
+margin: 0 auto;
+position: relative;
+}
+
+/* Linha vertical animada */
+.method-steps::before {
+content: '';
+position: absolute;
+top: 2rem;
+left: 1rem;
+width: 2px;
+height: 0;
+background: linear-gradient(to bottom, 
+  var(--gold-1), 
+  var(--gold-2), 
+  var(--gold-3), 
+  var(--gold-4), 
+  var(--gold-5));
+z-index: 0;
+transition: height 6s ease-out; /* Diminuída a velocidade da animação pela metade */
+}
+
+.method-steps.animate-line::before {
+height: calc(100% - 8rem); /* Encurtada para não passar do número 4 */
+}
+
+.method-step {
+margin-bottom: 2rem;
+position: relative;
+z-index: 1;
+}
+
+.method-step:last-child {
+margin-bottom: 0;
+}
+
+.step-header {
+display: flex;
+align-items: center;
+margin-bottom: 0.5rem;
+}
+
+.step-number {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 2rem;
+height: 2rem;
+border-radius: 9999px;
+margin-right: 1rem;
+background: linear-gradient(90deg, 
+  var(--gold-1), 
+  var(--gold-2), 
+  var(--gold-3), 
+  var(--gold-4), 
+  var(--gold-5));
+color: var(--dark);
+font-weight: 700;
+position: relative;
+z-index: 2;
+}
+
+.step-title {
+font-size: 1.25rem;
+font-weight: 600;
+}
+
+.step-description {
+margin-left: 3rem;
+color: var(--gray-400);
+}
+
+.step-description ul {
+list-style-type: disc;
+padding-left: 1.5rem;
+margin-top: 0.5rem;
+}
+
+.step-description li {
+margin-bottom: 0.25rem;
+}
+
+/* Before and After section */
+.before-after {
+padding: 5rem 0;
+background-color: var(--method-bg);
+width: 100%;
+overflow: hidden;
+}
+
+.feature-card {
+background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(109, 109, 109, 0.1), rgba(255, 255, 255, 0.1));
+backdrop-filter: blur(10px);
+padding: 1.5rem;
+border-radius: 0.5rem;
+transition: all 0.3s ease;
+margin-bottom: 1.5rem; /* Reduzido de 2rem para 1.5rem */
+border: 1px solid rgba(255, 255, 255, 0.1); /* Borda fina e discreta */
+}
+
+.feature-card:hover {
+box-shadow: 0 10px 15px -3px rgba(196, 173, 116, 0.1);
+}
+
+.feature-icon {
+width: 40px;
+height: 40px;
+margin-bottom: 1rem;
+background: linear-gradient(90deg, 
+  var(--gold-1), 
+  var(--gold-2), 
+  var(--gold-3), 
+  var(--gold-4), 
+  var(--gold-5));
+border-radius: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.feature-icon img {
+width: 24px;
+height: 24px;
+}
+
+.feature-title {
+font-size: 1.25rem;
+font-weight: 600;
+margin-bottom: 0.5rem;
+}
+
+.feature-description {
+color: var(--gray-400);
+font-size: 0.9rem;
+}
+
+.features-grid {
+display: grid;
+grid-template-columns: 1fr;
+gap: 1rem; /* Reduzido de 2rem para 1rem */
+}
+
+/* Carrossel - AJUSTADO PARA MOBILE */
+.carousel-container {
+position: relative;
+width: 100%;
+margin: 0 auto;
+border-radius: 0.5rem;
+max-width: 100%;
+overflow: hidden;
+}
+
+.carousel {
+display: flex;
+transition: transform 0.5s ease;
+width: 100%;
+}
+
+.carousel-slide {
+min-width: 100%;
+flex: 0 0 100%;
+position: relative;
+box-sizing: border-box;
+padding: 0;
+}
+
+.carousel-slide img {
+width: 100%;
+height: 400px; /* Altura reduzida dos carrosséis */
+object-fit: cover;
+border-radius: 0.5rem;
+}
+
+.carousel-controls {
+display: flex;
+justify-content: center;
+gap: 1rem;
+margin-top: 1.5rem;
+}
+
+.carousel-btn {
+width: 3rem;
+height: 3rem;
+border-radius: 50%;
+background: linear-gradient(90deg, 
+  var(--gold-1), 
+  var(--gold-2), 
+  var(--gold-3), 
+  var(--gold-4), 
+  var(--gold-5));
+border: none;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+color: var(--dark);
+transition: opacity 0.3s ease;
+}
+
+.carousel-btn:hover {
+opacity: 0.9;
+}
+
+.carousel-btn svg {
+width: 1.5rem;
+height: 1.5rem;
+stroke: var(--dark);
+stroke-width: 2;
+}
+
+/* Clinic section */
+.clinic {
+padding: 5rem 0;
+background-color: #ffffff; /* Fundo branco */
+color: #000; /* Texto preto para contraste */
+width: 100%;
+overflow: hidden;
+}
+
+.clinic .section-title {
+color: var(--section-title); /* Título em #5f1114 */
+}
+
+.clinic .section-description {
+color: var(--subtitle-color); /* Subtítulo em #97564e */
+}
+
+/* Testimonials section */
+.testimonials {
+padding: 5rem 0;
+background-color: #ffffff; /* Fundo branco */
+color: #000; /* Texto preto para contraste */
+width: 100%;
+overflow: hidden;
+}
+
+.testimonials .section-title {
+color: var(--section-title); /* Título em #5f1114 */
+}
+
+.testimonials .section-description {
+color: var(--subtitle-color); /* Subtítulo em #97564e */
+}
+
+/* About section - Estilos base para mobile */
+.about {
+position: relative;
+width: 100%;
+height: auto;
+overflow: hidden;
+background-color: var(--dark);
+padding: 0;
+}
+
+.about-bg {
+width: 100%;
+height: auto;
+display: block;
+}
+
+.about-content {
+position: absolute;
+z-index: 2;
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+padding: 2rem 1rem;
+bottom: 0;
+left: 0;
+}
+
+.quem-sou-btn {
+background-color: transparent;
+color: var(--white);
+border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: 2rem;
+padding: 0.5rem 1.5rem;
+margin-bottom: 1rem;
+font-size: 0.9rem;
+text-transform: uppercase;
+}
+
+.about-title {
+font-size: 2rem;
+font-weight: 700;
+margin-bottom: 0.25rem;
+text-align: center;
+}
+
+.about-subtitle {
+font-family: 'Nimbus Roman D OT Bold Italic', serif;
+font-style: italic;
+font-size: 2rem;
+background: linear-gradient(90deg, 
+  var(--gold-1), 
+  var(--gold-2), 
+  var(--gold-3), 
+  var(--gold-4), 
+  var(--gold-5));
+background-size: 200% auto;
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+animation: gradient 5s linear infinite; /* Aumentada a velocidade da animação */
+margin-bottom: 1.5rem;
+text-align: center;
+}
+
+.about-description {
+color: var(--white);
+margin-bottom: 1.5rem;
+font-size: 0.9rem;
+max-width: 600px;
+text-align: center;
+line-height: 1.4;
+}
+
+.about-cards {
+display: grid;
+grid-template-columns: 1fr;
+gap: 0.75rem;
+max-width: 600px;
+width: 100%;
+margin-bottom: 1.5rem;
+}
+
+.about-card {
+background-color: rgba(0, 0, 0, 0.7);
+border-radius: 0.5rem;
+padding: 0.75rem;
+display: flex;
+align-items: center;
+gap: 0.75rem;
+}
+
+.about-card-icon {
+width: 2rem;
+height: 2rem;
+min-width: 2rem;
+background: linear-gradient(90deg, 
+  var(--gold-1), 
+  var(--gold-2), 
+  var(--gold-3), 
+  var(--gold-4), 
+  var(--gold-5));
+border-radius: 0.5rem;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.about-card-text {
+font-size: 0.85rem;
+line-height: 1.3;
+}
+
+.about-footer {
+text-align: center;
+max-width: 600px;
+margin-bottom: 1.5rem;
+}
+
+.about-footer p {
+margin-bottom: 0.75rem;
+font-size: 0.85rem;
+}
+
+/* Location section */
+.location {
+padding: 5rem 0;
+background-color: var(--darker);
+width: 100%;
+overflow: hidden;
+}
+
+.location .section-title {
+color: var(--white); /* Restaurado para branco */
+}
+
+.map-container {
+height: 350px; /* Altura reduzida do mapa */
+background-color: var(--dark);
+border-radius: 0.5rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+margin: 0 auto;
+max-width: 1000px;
+overflow: hidden;
+}
+
+.map-iframe {
+width: 100%;
+height: 100%;
+border: 0;
+}
+
+.location-address {
+text-align: center;
+margin-top: 1.5rem;
+color: var(--gray-400);
+font-size: 1rem;
+line-height: 1.6;
+}
+
+/* FAQ section */
+.faq {
+padding: 5rem 0;
+background-color: var(--faq-bg);
+width: 100%;
+overflow: hidden;
+}
+
+.faq-badge {
+display: inline-block;
+padding: 0.5rem 1.5rem;
+border-radius: 9999px;
+border: 1px solid rgba(196, 173, 116, 0.3);
+color: var(--white);
+font-size: 0.875rem;
+margin-bottom: 1rem;
+}
+
+.faq-title {
+font-size: 2.5rem;
+font-weight: 700;
+text-align: center;
+margin-bottom: 1rem;
+}
+
+.faq-subtitle {
+color: var(--gray-400);
+text-align: center;
+max-width: 36rem;
+margin: 0 auto 3rem;
+font-size: 0.95rem;
+line-height: 1.6;
+}
+
+.faq-accordion {
+max-width: 48rem;
+margin: 0 auto;
+}
+
+.faq-item {
+margin-bottom: 0.5rem;
+border-radius: 0.75rem;
+background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(109, 109, 109, 0.1), rgba(255, 255, 255, 0.1));
+backdrop-filter: blur(10px);
+overflow: hidden;
+border: 1px solid #97564e; /* Borda externa na cor #97564e */
+}
+
+.faq-question-btn {
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1.25rem;
+background: none;
+border: none;
+color: var(--white);
+font-size: 1rem;
+font-weight: 500;
+text-align: left;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.faq-question-btn:hover {
+background-color: rgba(196, 173, 116, 0.05);
+}
+
+.faq-icon {
+min-width: 24px;
+height: 24px;
+color: var(--gold-3);
+transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+transform: rotate(45deg);
+}
+
+.faq-answer {
+max-height: 0;
+overflow: hidden;
+padding: 0 1.25rem;
+transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+max-height: 1000px; /* Aumentado para permitir que a resposta abra completamente */
+padding: 0 1.25rem 1.25rem;
+}
+
+.faq-answer p {
+color: var(--gray-400);
+font-size: 0.9rem;
+line-height: 1.5;
+margin-bottom: 1rem;
+}
+
+.faq-answer ul {
+color: var(--gray-400);
+font-size: 0.9rem;
+line-height: 1.5;
+list-style-type: disc;
+padding-left: 1.5rem;
+margin-top: 0.5rem;
+margin-bottom: 1rem;
+}
+
+.faq-answer li {
+margin-bottom: 0.5rem;
+}
+
+.faq-cta {
+text-align: center;
+margin-top: 3rem;
+}
+
+.faq-cta p {
+color: var(--gray-400);
+margin-bottom: 1.5rem;
+font-size: 0.95rem;
+}
+
+/* CTA section */
+.cta {
+padding: 4rem 0;
+background: linear-gradient(90deg, 
+  var(--gold-1), 
+  var(--gold-2), 
+  var(--gold-3), 
+  var(--gold-4), 
+  var(--gold-5));
+text-align: center;
+width: 100%;
+overflow: hidden;
+}
+
+.cta-title {
+font-family: 'Nimbus Roman D OT Bold Italic', serif;
+font-style: italic;
+font-size: 2rem;
+font-weight: 700;
+color: var(--dark);
+margin-bottom: 1.5rem;
+}
+
+.cta-description {
+color: rgba(12, 14, 20, 0.8);
+max-width: 36rem;
+margin: 0 auto 2rem;
+}
+
+.btn-dark {
+background-color: var(--dark);
+color: var(--white);
+}
+
+.btn-dark:hover {
+background-color: rgba(12, 14, 20, 0.9);
+}
+
+/* Botão preto para a seção CTA */
+.black-btn-action-text {
+background-color: var(--dark);
+color: var(--white);
+font-weight: 900;
+padding: 1rem 1.5rem;
+border-radius: 9999px;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+font-size: 0.9rem;
+}
+
+.black-btn-action-circle {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 2.5rem;
+height: 2.5rem;
+border-radius: 50%;
+background-color: var(--dark);
+margin-left: 0.75rem;
+transition: transform 0.3s ease;
+}
+
+.btn-action:hover .black-btn-action-circle {
+transform: translateX(5px);
+}
+
+.black-btn-action-circle svg {
+width: 1rem;
+height: 1rem;
+}
+
+/* Footer */
+.footer {
+padding: 3rem 0 1rem;
+background-color: #5f1114; /* Alterado para #5f1114 */
+width: 100%;
+overflow: hidden;
+}
+
+.footer-content {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+.footer-about {
+margin-bottom: 1rem;
+}
+
+.footer-logo {
+max-width: 150px;
+margin-bottom: 1.5rem;
+}
+
+.social-links {
+display: flex;
+gap: 0.5rem;
+justify-content: center;
+margin-top: 1rem;
+}
+
+.social-link {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 36px;
+height: 36px;
+border-radius: 50%;
+background: linear-gradient(90deg, 
+  var(--gold-1), 
+  var(--gold-2), 
+  var(--gold-3), 
+  var(--gold-4), 
+  var(--gold-5));
+background-size: 200% auto;
+animation: gradient 5s linear infinite; /* Aumentada a velocidade da animação */
+transition: all 0.3s ease;
+}
+
+.social-link img {
+width: 20px;
+height: 20px;
+}
+
+.social-link:hover {
+transform: scale(1.1);
+}
+
+.footer-bottom {
+margin-top: 1rem;
+padding-top: 1rem;
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+text-align: center;
+width: 100%;
+}
+
+.copyright {
+font-size: 0.875rem;
+color: var(--gray-400);
+}
+
+/* Responsividade para tablets */
+@media (min-width: 768px) {
+.features-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.about-cards {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.faq-question-btn {
+  font-size: 1.125rem;
+}
+
+.faq-answer p {
+  font-size: 1rem;
+}
+
+.faq-cta p {
+  font-size: 1.1rem;
+}
+}
+
+/* MEDIA QUERY ESPECÍFICA PARA MOBILE - Restaura as seções como estavam originalmente */
+@media (max-width: 1023px) {
+/* Hero section para mobile - usando a imagem específica para mobile */
+.hero {
+  position: relative;
+  height: auto;
+  display: block;
+  overflow: hidden;
+}
+
+.hero-bg {
+  content: url('https://i.imgur.com/VBNCLOB.jpg');
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-content {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  padding: 0 1rem;
+  bottom: 2%; /* Ajustado para ficar mais abaixo (3% a menos) */
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+/* Features section para mobile */
+.features {
+  background-image: url('https://i.imgur.com/on5xaXa.jpg');
+}
+
+/* About section para mobile - usando a imagem específica para mobile */
+.about {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-color: var(--dark);
+  padding: 0;
+}
+
+.about-bg {
+  content: url('https://i.imgur.com/VRxo4tR.jpg');
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-content {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 1rem;
+  bottom: 0;
+  left: 0;
+  transform: none;
+  top: auto;
+}
+
+.about-title, 
+.about-subtitle, 
+.about-description, 
+.about-footer {
+  text-align: center;
+}
+
+.about-cards {
+  grid-template-columns: 1fr;
+}
+
+/* Ajustes para carrosséis em mobile */
+.feature-slide {
+  min-width: 100%;
+  width: 100%;
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  width: 100%;
+  flex: 0 0 100%;
+  padding: 0;
+}
+
+/* Mostrar controles do carrossel no mobile */
+.features .carousel-controls {
+  display: flex;
+}
+
+/* Ajustar o carrossel para mobile */
+.features-carousel-container,
+.carousel-container {
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.features-carousel,
+.carousel {
+  width: 100%;
+}
+
+/* Ajuste da linha vertical para mobile */
+.method-steps.animate-line::before {
+  height: calc(100% - 4rem); /* Ajustada para chegar até o número 4 no mobile */
+}
+
+/* Ajustes específicos para iPhone */
+.carousel-slide img,
+.feature-slide img {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+/* Garantir que não haja overflow horizontal */
+section {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+}
+
+/* MEDIA QUERY ESPECÍFICA PARA DESKTOP - Mantém as alterações aprovadas */
+@media (min-width: 1024px) {
+.hero-title {
+  font-size: 3.5rem;
+}
+
+.features-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Features section para desktop */
+.features {
+  background-image: url('https://i.imgur.com/B2RmUZy.jpg');
+}
+
+/* Ajustar o carrossel para mostrar 3 cards por vez no desktop */
+.features-carousel {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.feature-slide {
+  min-width: 33.33%; /* 3 cards em uma linha */
+  flex: 0 0 33.33%;
+}
+
+/* Mostrar controles do carrossel no desktop */
+.features .carousel-controls {
+  display: flex;
+}
+
+.carousel-slide img {
+  height: 500px;
+  object-fit: contain; /* Remover zoom das fotos nos depoimentos */
+}
+
+/* Estilos específicos para desktop para a seção hero */
+.hero {
+  height: auto;
+  display: block;
+  position: relative;
+  padding-bottom: 0;
+}
+
+.hero-bg {
+  content: url('https://i.imgur.com/06qUFNZ.jpg');
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  object-fit: initial;
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 7%; /* Ajustado para ficar mais abaixo (5% a menos) */
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 2;
+  margin: 0 auto;
+}
+
+/* Estilos específicos para desktop para a seção about/quem sou */
+.about {
+  height: auto;
+  position: relative;
+}
+
+.about-bg {
+  content: url('https://i.imgur.com/O3hmTzc.jpg');
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.about-content {
+  position: absolute;
+  align-items: flex-start;
+  padding-left: 10%;
+  width: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: auto;
+  left: 0;
+  z-index: 2;
+}
+
+.about-title, 
+.about-subtitle, 
+.about-description, 
+.about-footer {
+  text-align: left;
+}
+
+.about-cards {
+  grid-template-columns: 1fr;
+}
+
+/* Ajustar carrosséis para mostrar 3 slides por vez no desktop */
+#clinicCarousel .carousel-slide,
+#testimonialCarousel .carousel-slide {
+  min-width: 33.33%;
+  flex: 0 0 33.33%;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+#clinicCarousel,
+#testimonialCarousel {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.carousel-container {
+  overflow: visible;
+  max-width: 1200px;
+}
+}
+
+/* Ajustes específicos para navegadores móveis */
+@media screen and (max-width: 480px) {
+  /* Ajustes para iPhone e outros dispositivos móveis pequenos */
+  .feature-slide,
+  .carousel-slide {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .features-carousel-container,
+  .carousel-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .features-carousel,
+  .carousel {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  /* Garantir que as imagens se ajustem corretamente */
+  .feature-slide img,
+  .carousel-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  /* Ajustes para botões em telas pequenas */
+  .btn-action-text {
+    font-size: 0.8rem;
+    padding: 0.8rem 1.2rem;
+  }
+  
+  .btn-action-circle {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  /* Ajustes para o menu em telas pequenas */
+  .menu-dropdown {
+    width: 90%;
+    right: 5%;
+  }
+}
+
+/* Ajustes para navegadores específicos */
+@supports (-webkit-touch-callout: none) {
+  /* Ajustes específicos para Safari no iOS */
+  .feature-slide,
+  .carousel-slide {
+    width: 100%;
+    min-width: 100%;
+    flex: 0 0 100%;
+  }
+  
+  .features-carousel-container,
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+  }
+}
+</style>
+</head>
+<body>
+<!-- Menu âncora em seção separada -->
+<section class="anchor-menu-section">
+<div class="container">
+  <div class="anchor-menu">
+    <div class="logo">
+      <img src="https://i.imgur.com/g3RWGfO.png" alt="Logo">
+    </div>
+    <button class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</div>
+<div class="menu-dropdown" id="menuDropdown">
+  <ul>
+    <li><a href="#inicio" class="active">Início</a></li>
+    <li><a href="#pequenos-detalhes">Pequenos Detalhes</a></li>
+    <li><a href="#metodo">Jornada Capilar</a></li>
+    <li><a href="#antes-depois">Nosso Método</a></li>
+    <li><a href="#clinica">Nossa Clínica</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#quem-somos">Quem Sou</a></li>
+    <li><a href="#localizacao">Localização</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contato">Agendar</a></li>
+  </ul>
+</div>
+</section>
+
+<!-- Hero Section -->
+<section class="hero" id="inicio">
+<img src="https://i.imgur.com/06qUFNZ.jpg" alt="Fundo" class="hero-bg">
+<div class="container">
+  <div class="hero-content">
+    <h1 class="hero-title">Seu <span class="gold-gradient">cabelo</span> fala, e nós sabemos <span class="gold-gradient">ouvir</span></h1>
+    <p class="hero-description">Transforme a sua saúde capilar com técnicas inovadoras e um olhar integrativo que cuida de você como um todo, de dentro pra fora.</p>
+    
+    <!-- Botão de ação -->
+    <a href="https://wa.me/555191010207?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta.%20Pode%20me%20dar%20mais%20informa%C3%A7%C3%B5es?" class="btn-action">
+      <span class="btn-action-text">QUERO AGENDAR AGORA</span>
+      <span class="btn-action-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7"></path>
+          <path d="M7 7h10v10"></path>
+        </svg>
+      </span>
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- Features Section -->
+<section class="features" id="pequenos-detalhes">
+<div class="container">
+  <h2 class="section-title fade-in-item">
+    <span class="pequenos-detalhes">Pequenos detalhes que fazem uma</span> <span class="grande-diferenca">grande diferença</span>
+  </h2>
+  
+  <div class="features-carousel-container fade-in-item delay-1">
+    <div class="features-carousel" id="featuresCarousel">
+      <!-- Feature 1 -->
+      <div class="feature-slide">
+        <img src="https://i.imgur.com/SyuQ4d1.jpg" alt="Foto 1">
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-slide">
+        <img src="https://i.imgur.com/QzK77WA.jpg" alt="Foto 2">
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-slide">
+        <img src="https://i.imgur.com/NBSZABa.jpg" alt="Foto 3">
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-slide">
+        <img src="https://i.imgur.com/CIJyU2v.jpg" alt="Foto 4">
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="feature-slide">
+        <img src="https://i.imgur.com/HBOnTid.jpg" alt="Foto 5">
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="feature-slide">
+        <img src="https://i.imgur.com/lPi1v46.jpg" alt="Foto 6">
+      </div>
+      
+      <!-- Feature 7 -->
+      <div class="feature-slide">
+        <img src="https://i.imgur.com/6VXhXH3.jpg" alt="Foto 7">
+      </div>
+      
+      <!-- Feature 8 -->
+      <div class="feature-slide">
+        <img src="https://i.imgur.com/Xbo0FvO.jpg" alt="Foto 8">
+      </div>
+      
+      <!-- Duplicação dos slides para animação contínua no desktop -->
+      <div class="feature-slide">
+        <img src="https://i.imgur.com/SyuQ4d1.jpg" alt="Foto 1">
+      </div>
+
+      <div class="feature-slide">
+        <img src="https://i.imgur.com/QzK77WA.jpg" alt="Foto 2">
+      </div>
+
+      <div class="feature-slide">
+        <img src="https://i.imgur.com/NBSZABa.jpg" alt="Foto 3">
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn prev-btn" data-carousel="featuresCarousel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5"></path>
+          <path d="M12 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+      <button class="carousel-btn next-btn" data-carousel="featuresCarousel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- O Método Section -->
+<section id="metodo" class="method">
+<div class="container">
+  <div class="section-intro">
+    <h2 class="section-title fade-in-item">
+      Sua <span class="gold-gradient">Jornada Capilar</span> Começa Aqui
+    </h2>
+    <p class="section-description fade-in-item delay-1">
+      No Studio de Terapia Capilar Integrativa, cada etapa do seu cuidado foi pensada para acolher, investigar, tratar e transformar.
+    </p>
+  </div>
+
+  <div class="method-steps" id="methodSteps">
+    <div class="method-step fade-in-item delay-1">
+      <div class="step-header">
+        <div class="step-number">1</div>
+        <h3 class="step-title">Avaliação Inicial</h3>
+      </div>
+      <div class="step-description">
+        <ul>
+          <li>Agende seu horário e preencha um questionário sensorial.</li>
+          <li>Envie exames e fotos dos produtos que usa.</li>
+          <li>Atendimento mais assertivo desde o primeiro contato.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="method-step fade-in-item delay-2">
+      <div class="step-header">
+        <div class="step-number">2</div>
+        <h3 class="step-title">Consulta & Diagnóstico</h3>
+      </div>
+      <div class="step-description">
+        <ul>
+          <li>Consulta presencial com tricoscopia, avaliação metabólica e entrevista completa.</li>
+          <li>Investigamos a fundo a raiz do problema.</li>
+          <li>Identificamos se o foco será tratamento ou embelezamento consciente.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="method-step fade-in-item delay-3">
+      <div class="step-header">
+        <div class="step-number">3</div>
+        <h3 class="step-title">Plano Terapêutico</h3>
+      </div>
+      <div class="step-description">
+        <ul>
+          <li>Você recebe pelo WhatsApp um plano de cuidado personalizado.</li>
+          <li>Baseado em evidências, escuta e sua rotina.</li>
+          <li>Tudo pensado para gerar resultados reais.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="method-step fade-in-item delay-4">
+      <div class="step-header">
+        <div class="step-number">4</div>
+        <h3 class="step-title">Reavaliação & Acompanhamento</h3>
+      </div>
+      <div class="step-description">
+        <ul>
+          <li>Após um período, você retorna para reavaliar sua evolução.</li>
+          <li>Ajustamos o plano conforme sua resposta ao tratamento.</li>
+          <li>Acompanhamento próximo para garantir resultados duradouros.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Antes e Depois Section -->
+<section id="antes-depois" class="before-after">
+<div class="container">
+  <div class="section-intro">
+    <h2 class="section-title fade-in-item">
+      Nosso <span class="gold-gradient">Método</span>
+    </h2>
+    <p class="section-description fade-in-item delay-1">
+      Descubra por que escolher a Cláudia como sua terapeuta capilar integrativa
+    </p>
+  </div>
+
+  <div class="features-grid">
+    <!-- Card 1 -->
+    <div class="feature-card fade-in-item delay-1">
+      <div class="feature-icon">
+        <img src="https://i.imgur.com/xUcwp00.png" alt="Ícone">
+      </div>
+      <h3 class="feature-title">Avaliação Capilar Detalhada</h3>
+      <p class="feature-description">
+        Anamnese, tricoscopia e escuta atenta para entender a fundo a causa do problema.
+      </p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="feature-card fade-in-item delay-2">
+      <div class="feature-icon">
+        <img src="https://i.imgur.com/xUcwp00.png" alt="Ícone">
+      </div>
+      <h3 class="feature-title">Tratamentos Naturais e Personalizados</h3>
+      <p class="feature-description">
+        Protocolos com ativos naturais, pensados exclusivamente para você.
+      </p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="feature-card fade-in-item delay-3">
+      <div class="feature-icon">
+        <img src="https://i.imgur.com/xUcwp00.png" alt="Ícone">
+      </div>
+      <h3 class="feature-title">Olhar Integrativo e Sistêmico</h3>
+      <p class="feature-description">
+        Fatores emocionais, hormonais e metabólicos também entram no cuidado.
+      </p>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="feature-card fade-in-item delay-4">
+      <div class="feature-icon">
+        <img src="https://i.imgur.com/xUcwp00.png" alt="Ícone">
+      </div>
+      <h3 class="feature-title">Embelezamento sem Químicas Agressivas</h3>
+      <p class="feature-description">
+        Hidratação, brilho e revitalização com segurança e respeito à saúde dos fios.
+      </p>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="feature-card fade-in-item delay-5">
+      <div class="feature-icon">
+        <img src="https://i.imgur.com/xUcwp00.png" alt="Ícone">
+      </div>
+      <h3 class="feature-title">Terapia Sensorial Capilar</h3>
+      <p class="feature-description">
+        Massagem e aromaterapia para relaxar, aliviar tensões e estimular o crescimento.
+      </p>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="feature-card fade-in-item delay-6">
+      <div class="feature-icon">
+        <img src="https://i.imgur.com/xUcwp00.png" alt="Ícone">
+      </div>
+      <h3 class="feature-title">Acompanhamento de Perto</h3>
+      <p class="feature-description">
+        Planos ajustáveis com base na sua evolução — do início ao resultado.
+      </p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Nossa Clínica Section -->
+<section id="clinica" class="clinic">
+<div class="container">
+  <div class="section-intro">
+    <h2 class="section-title fade-in-item">
+      Nossa <span class="gold-gradient">Clínica</span>
+    </h2>
+    <p class="section-description fade-in-item delay-1">
+      Um ambiente moderno e acolhedor, projetado para proporcionar o máximo conforto durante o seu tratamento.
+    </p>
+  </div>
+
+  <div class="carousel-container fade-in-item delay-2">
+    <div class="carousel" id="clinicCarousel">
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/Yc9nQ4a.jpg" alt="Clínica - Recepção">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/rpZ33f2.jpg" alt="Clínica - Consultório">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/Ww3F7bp.jpg" alt="Clínica - Sala de Espera">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/Ypf9P7E.jpg" alt="Clínica - Equipamentos">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/SuUhUKH.jpg" alt="Clínica - Vista">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/DxP6v5D.jpg" alt="Clínica - Ambiente">
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn prev-btn" data-carousel="clinicCarousel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5"></path>
+          <path d="M12 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+      <button class="carousel-btn next-btn" data-carousel="clinicCarousel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Depoimentos Section -->
+<section id="depoimentos" class="testimonials">
+<div class="container">
+  <div class="section-intro">
+    <h2 class="section-title fade-in-item">
+      Depoimentos de <span class="gold-gradient">Pacientes</span>
+    </h2>
+    <p class="section-description fade-in-item delay-1">
+      Veja o que nossos pacientes têm a dizer sobre suas experiências e resultados com o nosso tratamento.
+    </p>
+  </div>
+
+  <div class="carousel-container fade-in-item delay-2">
+    <div class="carousel" id="testimonialCarousel">
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/3ecVTH5.jpg" alt="Depoimento 1">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/Wj9DYUu.jpg" alt="Depoimento 2">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/7siGDry.jpg" alt="Depoimento 3">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/jMlKTxJ.jpg" alt="Depoimento 4">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/kaFDCf6.jpg" alt="Depoimento 5">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://i.imgur.com/NMxur8h.jpg" alt="Depoimento 6">
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn prev-btn" data-carousel="testimonialCarousel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5"></path>
+          <path d="M12 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+      <button class="carousel-btn next-btn" data-carousel="testimonialCarousel">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5   stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Quem Somos Section -->
+<section id="quem-somos" class="about">
+<img src="https://i.imgur.com/O3hmTzc.jpg" alt="Dra. Andressa Sone" class="about-bg">
+<div class="container">
+  <div class="about-content">
+    <button class="quem-sou-btn fade-in-item">QUEM SOU</button>
+    <h2 class="about-title fade-in-item delay-1">Especialista em</h2>
+    <h3 class="about-subtitle fade-in-item delay-1">Terapia Capilar Integrativa</h3>
+    <p class="about-description fade-in-item delay-2">
+      Com mais de 10 anos de experiência no cuidado com os cabelos, Cláudia Francisca desenvolveu uma abordagem única que une ciência, escuta acolhedora e propósito em cada atendimento.
+    </p>
+    
+    <div class="about-cards">
+      <div class="about-card fade-in-item delay-3">
+        <div class="about-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <p class="about-card-text">
+          Criadora do Studio de Terapia Capilar Integrativa – referência em cuidado capilar personalizado e abordagem terapêutica.
+        </p>
+      </div>
+      
+      <div class="about-card fade-in-item delay-4">
+        <div class="about-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <p class="about-card-text">
+          Formada em terapia capilar e futura biomédica, com trajetória que começou como cabeleireira e evoluiu para um olhar profundo sobre a saúde dos fios e do couro cabeludo.
+        </p>
+      </div>
+      
+      <div class="about-card fade-in-item delay-5">
+        <div class="about-card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <p class="about-card-text">
+          +600 mulheres já transformaram sua relação com o cabelo e a autoestima com seus cuidados.
+        </p>
+      </div>
+    </div>
+    
+    <div class="about-footer fade-in-item delay-5">
+      <p>Atendimento exclusivo para mulheres que buscam equilíbrio, bem-estar e saúde capilar de forma natural e integrativa.</p>
+      <p>Para Cláudia, cabelo saudável é reflexo de uma vida em harmonia – e cada tratamento é um convite ao autoconhecimento, ao cuidado e à reconexão com sua própria essência.</p>
+    </div>
+    
+    <a href="https://wa.me/555191010207?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta.%20Pode%20me%20dar%20mais%20informa%C3%A7%C3%B5es?" class="btn-action fade-in-item delay-6">
+      <span class="btn-action-text">QUERO AGENDAR AGORA</span>
+      <span class="btn-action-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="M12 5l7 7-7 7"></path>
+        </svg>
+      </span>
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- Localização Section -->
+<section id="localizacao" class="location">
+<div class="container">
+  <div class="section-intro">
+    <h2 class="section-title fade-in-item">
+      Nossa <span class="gold-gradient">Localização</span>
+    </h2>
+    <p class="section-description fade-in-item delay-1">
+      Estamos localizados em uma região de fácil acesso, com estacionamento e toda infraestrutura para seu conforto.
+    </p>
+  </div>
+
+  <div class="map-container fade-in-item delay-2">
+    <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.8302124272166!2d-51.20389!3d-30.0123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951979a1b1d1d789%3A0x6f9e4cbe5faf351e!2sR.%20Ad%C3%A3o%20Baino%2C%20146%20-%20sala%20404%20-%20Cristo%20Redentor%2C%20Porto%20Alegre%20-%20RS!5e0!3m2!1spt-BR!2sbr!4v1713318000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <div class="location-address fade-in-item delay-3">
+    <p>Rua Adão Baino 146 sala 404</p>
+    <p>Cristo Redentor</p>
+  </div>
+</div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="faq">
+<div class="container">
+  <div class="section-intro">
+    <div class="text-center">
+      <span class="faq-badge fade-in-item">FAQ</span>
+    </div>
+    <h2 class="faq-title fade-in-item delay-1">
+      Perguntas mais <span class="gold-gradient">frequentes</span>
+    </h2>
+    <p class="faq-subtitle fade-in-item delay-2">
+      Sabemos que escolher um tratamento capilar é uma decisão importante.
+Por isso, reunimos as principais dúvidas para que você se sinta segura e confiante antes de iniciar sua jornada de cuidado com a saúde do couro cabeludo e dos fios.
+    </p>
+  </div>
+
+  <div class="faq-accordion">
+    <!-- FAQ Item 1 -->
+    <div class="faq-item fade-in-item delay-2">
+      <button class="faq-question-btn">
+        <span>O que é terapia capilar?</span>
+        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        <p>A terapia capilar é um cuidado integrativo que vai além da estética. É um processo terapêutico voltado para a saúde do couro cabeludo e dos fios, com o objetivo de promover conforto, equilíbrio da microbiota da pele, tratar disfunções capilares como queda, dermatite, alopecia, afinamento de fio, doenças autoimunes que provocam queda, menopausa, entre outras, além de restaurar a força natural do cabelo. Através de técnicas personalizadas e naturais, ajudamos a reequilibrar o ciclo de crescimento e a espessura dos fios — trazendo de volta não só a vitalidade dos cabelos, mas também a sua autoestima.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 2 -->
+    <div class="faq-item fade-in-item delay-3">
+      <button class="faq-question-btn">
+        <span>Para que serve a terapia capilar integrativa?</span>
+        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        <p>A terapia capilar integrativa é um caminho de reconexão com você mesma. Ela trata disfunções que impedem o desenvolvimento saudável dos fios, como queda, oleosidade excessiva, afinamento e inflamações. Além disso, fortalece os cabelos, regula o ciclo de crescimento e resgata a autoestima da mulher que deseja se ver e se sentir melhor. É um cuidado profundo, que começa entendendo o fator que causou a disfunção, transformando de dentro para fora.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 3 -->
+    <div class="faq-item fade-in-item delay-3">
+      <button class="faq-question-btn">
+        <span>O que exatamente é um tratamento capilar?</span>
+        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        <p>Tratamento capilar é mais do que um cuidado com os fios — é um olhar clínico e terapêutico sobre o seu momento capilar. Avaliamos o estado atual dos fios (como ressecamento, quebra, frizz, falta de brilho ou danos por químicas) e, a partir disso, propomos um protocolo totalmente natural, personalizado e baseado em técnicas da terapia capilar integrativa. Cada sessão é pensada para regenerar, nutrir e restaurar sua relação com a sua beleza.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 4 -->
+    <div class="faq-item fade-in-item delay-4">
+      <button class="faq-question-btn">
+        <span>Preciso estar com um problema no cabelo para fazer terapia capilar?</span>
+        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        <p>Não! A terapia capilar também é uma forma de prevenção. Muitas mulheres nos procuram para manter a saúde do couro cabeludo, fortalecer os fios e evitar futuros danos. Assim como cuidamos da pele ou da alimentação, o cuidado capilar deve ser parte da sua rotina de bem-estar.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 5 -->
+    <div class="faq-item fade-in-item delay-4">
+      <button class="faq-question-btn">
+        <span>A terapia capilar substitui o tratamento médico?</span>
+        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        <p>Jamais substituímos tratamentos médicos, mas atuamos de forma multidisciplinar. Nosso olhar é integrativo, ou seja, consideramos o corpo como um todo e identificamos possíveis causas emocionais, nutricionais ou metabólicas por trás das disfunções capilares. Sempre que necessário, indicamos o acompanhamento conjunto com profissionais da saúde.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 6 -->
+    <div class="faq-item fade-in-item delay-5">
+      <button class="faq-question-btn">
+        <span>Quanto tempo demora para ver os resultados?</span>
+        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        <p>Cada cabelo é único e responde de forma diferente, mas muitas clientes percebem melhoras já nas primeiras sessões, especialmente no conforto e na saúde do couro cabeludo. Resultados mais duradouros, como fortalecimento dos fios e redução da queda, costumam surgir entre 3 a 6 meses, com o acompanhamento adequado.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 7 -->
+    <div class="faq-item fade-in-item delay-5">
+      <button class="faq-question-btn">
+        <span>O valor de uma terapia capilar varia?</span>
+        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        <p>Sim, o valor da terapia capilar pode variar conforme a complexidade da disfunção, o tempo de tratamento necessário e os recursos terapêuticos utilizados. Aqui no Studio, cada plano é construído de forma individualizada, respeitando a história e as necessidades da cliente. Por isso, antes de definir valores, realizamos uma avaliação detalhada para entender o que seu couro cabeludo e seus fios realmente precisam. Mais do que um tratamento, oferecemos uma jornada de transformação que começa no cuidado e reflete na sua autoestima.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 8 -->
+    <div class="faq-item fade-in-item delay-6">
+      <button class="faq-question-btn">
+        <span>Você só atende cabelos cacheados?</span>
+        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        <p>De forma alguma. Aqui no Studio, cuidamos da saúde capilar de forma personalizada, respeitando a individualidade de cada mulher. Atendemos todos os tipos de cabelo — lisos, ondulados, cacheados ou crespos — porque acreditamos que a verdadeira beleza está na sua essência. Nosso foco é a saúde do couro cabeludo e dos fios, não importa a curvatura, estrutura ou etnia.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 9 -->
+    <div class="faq-item fade-in-item delay-6">
+      <button class="faq-question-btn">
+        <span>Você utiliza química nos tratamentos?</span>
+        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        <p>Nossos tratamentos são baseados em ativos naturais, protocolos personalizados e tecnologia de ponta, tudo pensado para restaurar a saúde capilar de forma segura, respeitosa e eficaz.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Item 10 -->
+    <div class="faq-item fade-in-item delay-6">
+      <button class="faq-question-btn">
+        <span>Como faço para agendar meu primeiro atendimento?</span>
+        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        <p>O agendamento do seu primeiro atendimento é o início de uma jornada de reconexão com sua saúde capilar e sua autoestima. Para que possamos oferecer um cuidado verdadeiramente personalizado, alguns passos são importantes:</p>
+        <ul>
+          <li>Evite lavar os cabelos por pelo menos 2 dias antes do atendimento – isso nos ajuda a observar com mais precisão o comportamento do couro cabeludo.</li>
+          <li>Encaminhe seus exames médicos mais recentes, caso possua.</li>
+          <li>Responda ao nosso questionário de avaliação capilar, que será enviado no momento do agendamento.</li>
+          <li>Reserve de 1h30 a 2h do seu tempo, pois realizaremos uma entrevista completa para entender suas queixas, histórico capilar e investigar a fundo as possíveis causas da disfunção.</li>
+        </ul>
+        <p>Após essa avaliação cuidadosa, você receberá uma proposta personalizada de tratamento para iniciarmos seus cuidados com intenção, respeito e compromisso com sua saúde integral.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-cta">
+    <p class="fade-in-item delay-6">Precisa de mais informações? Fale com a Claudia agora.</p>
+    <a href="https://wa.me/555191010207?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta.%20Pode%20me%20dar%20mais%20informa%C3%A7%C3%B5es?" class="btn-action fade-in-item delay-6">
+      <span class="btn-action-text">FALAR COM A CLAUDIA</span>
+      <span class="btn-action-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7"></path>
+          <path d="M7 7h10v10"></path>
+        </svg>
+      </span>
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- CTA Section -->
+<section id="contato" class="cta">
+<div class="container">
+  <h2 class="cta-title fade-in-item">Levamos nosso trabalho com seriedade e respeito à saúde integral</h2>
+  <p class="cta-description fade-in-item delay-1">
+    Por isso, valorizamos o acompanhamento médico e o uso de exames atualizados, garantindo um tratamento integrativo seguro, alinhado às reais necessidades de cada paciente.
+  </p>
+  <!-- Botão de ação atualizado com cor preta -->
+  <a href="https://wa.me/555191010207?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta.%20Pode%20me%20dar%20mais%20informa%C3%A7%C3%B5es?" class="btn-action fade-in-item delay-2" style="display: inline-flex;">
+    <span class="black-btn-action-text">AGENDAR CONSULTA</span>
+    <span class="black-btn-action-circle">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 17L17 7"></path>
+        <path d="M7 7h10v10"></path>
+      </svg>
+    </span>
+  </a>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+  <div class="footer-content">
+    <div class="footer-about">
+      <img src="https://i.imgur.com/g3RWGfO.png" alt="Logo" class="footer-logo">
+      <div class="social-links">
+        <a href="https://instagram.com" class="social-link">
+          <img src="https://i.imgur.com/GntzUYU.png" alt="Instagram">
+        </a>
+        <a href="https://facebook.com" class="social-link">
+          <img src="https://i.imgur.com/9xxWnSv.png" alt="Facebook">
+        </a>
+        <a href="https://tiktok.com" class="social-link">
+          <img src="https://i.imgur.com/JHBwdSb.png" alt="TikTok">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="copyright">
+      © 2025 Dra. Claudia Francisca. Todos os direitos reservados.
+    </p>
+  </div>
+</div>
+</footer>
+
+<script>
+// Script para o site
+document.addEventListener('DOMContentLoaded', function() {
+  // Menu âncora toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const menuDropdown = document.getElementById('menuDropdown');
+  
+  menuToggle.addEventListener('click', function() {
+    menuDropdown.classList.toggle('active');
+  });
+  
+  // Fechar menu ao clicar fora
+  document.addEventListener('click', function(event) {
+    if (!menuToggle.contains(event.target) && !menuDropdown.contains(event.target)) {
+      menuDropdown.classList.remove('active');
+    }
+  });
+  
+  // Destacar item de menu ativo ao rolar
+  const sections = document.querySelectorAll('section[id]');
+  const menuLinks = document.querySelectorAll('.menu-dropdown a');
+  
+  function highlightMenuOnScroll() {
+    const scrollY = window.pageYOffset;
+    
+    sections.forEach(section => {
+      const sectionHeight = section.offsetHeight;
+      const sectionTop = section.offsetTop - 100;
+      const sectionId = section.getAttribute('id');
+      
+      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        menuLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + sectionId) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', highlightMenuOnScroll);
+  
+  // Smooth scroll para links de âncora
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      menuDropdown.classList.remove('active');
+      
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  
+  // Script para o acordeão do FAQ
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const button = item.querySelector('.faq-question-btn');
+    
+    button.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      
+      // Fecha todos os itens
+      faqItems.forEach(faqItem => {
+        faqItem.classList.remove('active');
+      });
+      
+      // Se o item clicado não estava ativo, abre ele
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+
+  // Carrossel de imagens - AJUSTADO para telas menores
+  function setupCarousel(carouselId) {
+    const carousel = document.getElementById(carouselId);
+    if (!carousel) return;
+    
+    const slides = carousel.querySelectorAll('.carousel-slide, .feature-slide');
+    const prevBtn = document.querySelector(`.prev-btn[data-carousel="${carouselId}"]`);
+    const nextBtn = document.querySelector(`.next-btn[data-carousel="${carouselId}"]`);
+    
+    if (!slides.length || !prevBtn || !nextBtn) return;
+    
+    let currentSlide = 0;
+    const slideCount = slides.length;
+    const isMobile = window.innerWidth < 1024;
+    const slidesPerView = isMobile ? 1 : 3;
+    
+    function goToSlide(n) {
+      if (isMobile) {
+        carousel.style.transform = `translateX(-${n * 100}%)`;
+      } else {
+        // No desktop, mostra 3 cards por vez
+        carousel.style.transform = `translateX(-${n * (100 / slidesPerView)}%)`;
+      }
+      currentSlide = n;
+    }
+    
+    function nextSlide() {
+      if (isMobile) {
+        currentSlide = (currentSlide + 1) % slideCount;
+      } else {
+        // No desktop, garantir que não ultrapasse o limite
+        currentSlide = (currentSlide + 1) % (slideCount - slidesPerView + 1);
+      }
+      goToSlide(currentSlide);
+    }
+    
+    function prevSlide() {
+      if (isMobile) {
+        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+      } else {
+        // No desktop, garantir que não ultrapasse o limite
+        currentSlide = (currentSlide - 1 + (slideCount - slidesPerView + 1)) % (slideCount - slidesPerView + 1);
+      }
+      goToSlide(currentSlide);
+    }
+    
+    // Configurar botões
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    // Iniciar carrossel automático
+    let slideInterval = setInterval(nextSlide, 5000);
+    
+    // Pausar carrossel ao passar o mouse
+    carousel.parentElement.addEventListener('mouseenter', () => {
+      clearInterval(slideInterval);
+    });
+    
+    // Retomar carrossel ao remover o mouse
+    carousel.parentElement.addEventListener('mouseleave', () => {
+      slideInterval = setInterval(nextSlide, 5000);
+    });
+    
+    // Iniciar no primeiro slide
+    goToSlide(0);
+    
+    // Adicionar suporte para gestos de toque em dispositivos móveis
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+    
+    carousel.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, {passive: true});
+    
+    function handleSwipe() {
+      const swipeThreshold = 50; // Mínimo de pixels para considerar um swipe
+      if (touchEndX < touchStartX - swipeThreshold) {
+        // Swipe para a esquerda
+        nextSlide();
+      } else if (touchEndX > touchStartX + swipeThreshold) {
+        // Swipe para a direita
+        prevSlide();
+      }
+    }
+  }
+  
+  // Inicializar carrosséis
+  setupCarousel('clinicCarousel');
+  setupCarousel('testimonialCarousel');
+  
+  // Configuração especial para o carrossel de features no desktop
+  function setupFeaturesCarousel() {
+    const carousel = document.getElementById('featuresCarousel');
+    if (!carousel) return;
+    
+    const slides = carousel.querySelectorAll('.feature-slide');
+    const prevBtn = document.querySelector(`.prev-btn[data-carousel="featuresCarousel"]`);
+    const nextBtn = document.querySelector(`.next-btn[data-carousel="featuresCarousel"]`);
+    
+    if (!slides.length || !prevBtn || !nextBtn) return;
+    
+    let currentSlide = 0;
+    const slideCount = slides.length;
+    const isMobile = window.innerWidth < 1024;
+    
+    function goToSlide(n) {
+      if (isMobile) {
+        carousel.style.transform = `translateX(-${n * 100}%)`;
+      } else {
+        // No desktop, mostra 3 cards por vez e move 1 card por vez
+        carousel.style.transform = `translateX(-${n * 33.33}%)`;
+      }
+      currentSlide = n;
+    }
+    
+    function nextSlide() {
+      if (isMobile) {
+        currentSlide = (currentSlide + 1) % slideCount;
+      } else {
+        // No desktop, garantir que não ultrapasse o limite
+        currentSlide = (currentSlide + 1) % (slideCount - 2);
+      }
+      goToSlide(currentSlide);
+    }
+    
+    function prevSlide() {
+      if (isMobile) {
+        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+      } else {
+        // No desktop, garantir que não ultrapasse o limite
+        currentSlide = (currentSlide - 1 + (slideCount - 2)) % (slideCount - 2);
+      }
+      goToSlide(currentSlide);
+    }
+    
+    // Configurar botões
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    // Iniciar carrossel automático
+    let slideInterval = setInterval(nextSlide, 5000);
+    
+    // Pausar carrossel ao passar o mouse
+    carousel.parentElement.addEventListener('mouseenter', () => {
+      clearInterval(slideInterval);
+    });
+    
+    // Retomar carrossel ao remover o mouse
+    carousel.parentElement.addEventListener('mouseleave', () => {
+      slideInterval = setInterval(nextSlide, 5000);
+    });
+    
+    // Iniciar no primeiro slide
+    goToSlide(0);
+    
+    // Adicionar suporte para gestos de toque em dispositivos móveis
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+    
+    carousel.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, {passive: true});
+    
+    function handleSwipe() {
+      const swipeThreshold = 50; // Mínimo de pixels para considerar um swipe
+      if (touchEndX < touchStartX - swipeThreshold) {
+        // Swipe para a esquerda
+        nextSlide();
+      } else if (touchEndX > touchStartX + swipeThreshold) {
+        // Swipe para a direita
+        prevSlide();
+      }
+    }
+  }
+  
+  // Inicializar o carrossel de features com configuração especial
+  setupFeaturesCarousel();
+  
+  // Animação de surgimento ao rolar
+  const fadeElements = document.querySelectorAll('.fade-in-item');
+  
+  function checkFade() {
+    fadeElements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const elementBottom = element.getBoundingClientRect().bottom;
+      const isVisible = (elementTop < window.innerHeight - 50) && (elementBottom > 0);
+      
+      if (isVisible) {
+        element.classList.add('is-visible');
+      }
+    });
+  }
+  
+  // Verificar elementos visíveis ao carregar a página
+  checkFade();
+  
+  // Verificar elementos visíveis ao rolar
+  window.addEventListener('scroll', checkFade);
+  
+  // Animação da linha vertical na seção método
+  const methodSteps = document.getElementById('methodSteps');
+  
+  function checkMethodSteps() {
+    if (methodSteps) {
+      const methodStepsTop = methodSteps.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      
+      if (methodStepsTop < windowHeight * 0.75) {
+        methodSteps.classList.add('animate-line');
+      }
+    }
+  }
+  
+  // Verificar a seção método ao carregar a página
+  checkMethodSteps();
+  
+  // Verificar a seção método ao rolar
+  window.addEventListener('scroll', checkMethodSteps);
+  
+  // Ajustar o carrossel ao redimensionar a janela
+  window.addEventListener('resize', function() {
+    setupFeaturesCarousel();
+    setupCarousel('clinicCarousel');
+    setupCarousel('testimonialCarousel');
+  });
+  
+  // Corrigir problemas de overflow em dispositivos iOS
+  function fixIOSOverflow() {
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+      document.querySelectorAll('.features-carousel-container, .carousel-container').forEach(container => {
+        container.style.width = '100%';
+        container.style.maxWidth = '100%';
+        container.style.overflow = 'hidden';
+      });
+      
+      document.querySelectorAll('.feature-slide, .carousel-slide').forEach(slide => {
+        slide.style.width = '100%';
+        slide.style.minWidth = '100%';
+        slide.style.padding = '0';
+        slide.style.margin = '0';
+      });
+    }
+  }
+  
+  // Executar correção para iOS
+  fixIOSOverflow();
+});
+</script>
+
+</body>
+</html>
